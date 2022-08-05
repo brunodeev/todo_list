@@ -2,8 +2,17 @@
 
 import 'package:flutter/material.dart';
 
-class TodoListPage extends StatelessWidget {
-  const TodoListPage({Key? key}) : super(key: key);
+class TodoListPage extends StatefulWidget {
+  TodoListPage({Key? key}) : super(key: key);
+
+  @override
+  State<TodoListPage> createState() => _TodoListPageState();
+}
+
+class _TodoListPageState extends State<TodoListPage> {
+  final TextEditingController todoController = TextEditingController();
+
+  List<String> todos = [];
 
   @override
   Widget build(BuildContext context) {
@@ -18,6 +27,7 @@ class TodoListPage extends StatelessWidget {
               children: [
                 Expanded(
                   child: TextField(
+                    controller: todoController,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
                       hintText: "Adicione uma tarefa",
@@ -26,11 +36,17 @@ class TodoListPage extends StatelessWidget {
                 ),
                 SizedBox(width: 7),
                 ElevatedButton(
+                  onPressed: () {
+                    String text = todoController.text;
+                    setState(() {
+                      todos.add(text);
+                    });
+                    todoController.clear();
+                  },
                   style: ElevatedButton.styleFrom(
                     padding: EdgeInsets.all(14),
                     primary: Color(0xff58D8B5),
                   ),
-                  onPressed: () {},
                   child: Icon(
                     Icons.add,
                     size: 30,
@@ -38,9 +54,27 @@ class TodoListPage extends StatelessWidget {
                 )
               ],
             ),
-            SizedBox(
-              height: 16,
+            SizedBox(height: 16),
+            Flexible(
+              child: ListView(
+                shrinkWrap: true,
+                children: [
+                  for (String todo in todos)
+                    ListTile(
+                      title: Text(todo),
+                      subtitle: Text('04/08/2022'),
+                      leading: Icon(
+                        Icons.save,
+                        size: 30,
+                      ),
+                      onTap: () {
+                        print('Tarefa: $todo');
+                      },
+                    ),
+                ],
+              ),
             ),
+            SizedBox(height: 16),
             Row(
               children: [
                 Expanded(
