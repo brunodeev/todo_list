@@ -42,35 +42,32 @@ class TodoListItem extends StatelessWidget {
             ),
           ],
         ),
-        child: Expanded(
-          flex: 1,
-          child: Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(12),
-                bottomLeft: Radius.circular(12),
+        child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(12),
+              bottomLeft: Radius.circular(12),
+            ),
+            color: Colors.grey[200],
+          ),
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Text(
+                DateFormat('dd/MM/yyyy - HH:mm').format(todo.dateTime),
+                style: TextStyle(
+                  fontSize: 12,
+                ),
               ),
-              color: Colors.grey[200],
-            ),
-            padding: const EdgeInsets.all(16),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                Text(
-                  DateFormat('dd/MM/yyyy - HH:mm').format(todo.dateTime),
-                  style: TextStyle(
-                    fontSize: 12,
-                  ),
+              Text(
+                todo.title,
+                style: TextStyle(
+                  fontSize: 17,
+                  fontWeight: FontWeight.w600,
                 ),
-                Text(
-                  todo.title,
-                  style: TextStyle(
-                    fontSize: 17,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
