@@ -1,12 +1,9 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 
 import '../models/todo.dart';
 
@@ -30,9 +27,7 @@ class TodoListItem extends StatelessWidget {
           extentRatio: 0.25,
           children: [
             SlidableAction(
-              borderRadius: BorderRadius.only(
-                  topRight: Radius.circular(12),
-                  bottomRight: Radius.circular(12)),
+              borderRadius: BorderRadius.circular(18),
               label: 'Deletar',
               backgroundColor: Colors.red,
               icon: Icons.delete,
@@ -44,10 +39,7 @@ class TodoListItem extends StatelessWidget {
         ),
         child: Container(
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(12),
-              bottomLeft: Radius.circular(12),
-            ),
+            borderRadius: BorderRadius.circular(18),
             color: Colors.grey[200],
           ),
           padding: const EdgeInsets.all(16),
