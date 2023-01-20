@@ -96,7 +96,7 @@ class _TodoListPageState extends State<TodoListPage> {
                         borderRadius: BorderRadius.circular(18),
                       ),
                       padding: EdgeInsets.all(14),
-                      primary: Color(0xff58D8B5),
+                      backgroundColor: Color(0xff58D8B5),
                     ),
                     child: Icon(
                       Icons.add,
@@ -133,7 +133,7 @@ class _TodoListPageState extends State<TodoListPage> {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(18),
                       ),
-                      primary: Color(0xff58D8B5),
+                      backgroundColor: Color(0xff58D8B5),
                       padding: EdgeInsets.all(14),
                     ),
                     onPressed: showDeleteTodosConfirmationDialog,
@@ -192,7 +192,7 @@ class _TodoListPageState extends State<TodoListPage> {
           TextButton(
             child: Text('Cancelar'),
             style: TextButton.styleFrom(
-              primary: Color(0xff58D8B5),
+              backgroundColor: Color(0xff58D8B5),
             ),
             onPressed: () {
               Navigator.of(context).pop();
@@ -201,7 +201,7 @@ class _TodoListPageState extends State<TodoListPage> {
           TextButton(
             child: Text('Confirmar'),
             style: TextButton.styleFrom(
-              primary: Color.fromARGB(255, 228, 51, 20),
+              backgroundColor: Color.fromARGB(255, 228, 51, 20),
             ),
             onPressed: () {
               Navigator.of(context).pop();
